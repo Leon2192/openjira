@@ -13,6 +13,7 @@ export interface EntriesState {
 
 const Entries_INITIAL_STATE: EntriesState = {
   entries: [],
+  children: []
 };
 
 export const EntriesProvider: FC<PropsWithChildren> = ({ children }) => {
