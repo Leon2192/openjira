@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useReducer } from "react";
+import React, { FC, ReactNode, useEffect, useReducer } from "react";
 
 import { EntriesContext } from "./EntriesContext";
 import { Entry } from "../../interfaces/entry";
@@ -18,7 +18,7 @@ const Entries_INITIAL_STATE: EntriesState = {
   entries: [],
 };
 
-export const EntriesProvider: FC<EntriesProviderProps> = ({ children }) => {
+export const EntriesProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
 
   const addNewEntry = async (description: string) => {
