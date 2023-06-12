@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useEffect, useReducer } from "react";
+import { FC, ReactNode, useEffect, useReducer } from "react";
 
 import { EntriesContext } from "./EntriesContext";
 import { Entry } from "../../interfaces/entry";
@@ -6,17 +6,19 @@ import entriesApi from "../../apis/entriesApi";
 import entriesReducer from "./entriesReducer";
 import { v4 as uuidv4 } from "uuid";
 
+interface EntriesProviderProps {
+  children: ReactNode
+}
+
 export interface EntriesState {
   entries: Entry[];
-  children?: any;
 }
 
 const Entries_INITIAL_STATE: EntriesState = {
   entries: [],
-  children: []
 };
 
-export const EntriesProvider: FC<PropsWithChildren> = ({ children }) => {
+export const EntriesProvider: FC<EntriesProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
 
   const addNewEntry = async (description: string) => {
