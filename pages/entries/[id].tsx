@@ -19,7 +19,7 @@ const EntryPage: FC<Props> = ({ entry }) => {
     console.log({ entry })
 
     const [inputValue, setInputValue] = useState(entry.description)
-    const [status, setStatus] = useState<EntryStatus>(entry.status);
+    const [status, setStatus] = useState<EntryStatus>('pending');
     const [touched, setTouched] = useState(false);
 
     const isNotValid = useMemo(() => inputValue.length <= 0 && touched, [inputValue, touched])
