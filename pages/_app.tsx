@@ -6,8 +6,7 @@ import React, { ReactElement } from "react";
 import type { AppProps } from "next/app";
 import { EntriesProvider } from "../context/entries/EntriesProvider";
 import { UIProvider } from "../context/ui/UIProvider";
-import darkTheme from "./themes/dark-theme";
-import lightTheme from "./themes/light-theme";
+import darkTheme from "../themes/dark-theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
