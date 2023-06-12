@@ -7,7 +7,7 @@ import entriesReducer from "./entriesReducer";
 import { v4 as uuidv4 } from "uuid";
 
 interface EntriesProviderProps {
-  children: ReactNode
+  children?: ReactNode
 }
 
 export interface EntriesState {
