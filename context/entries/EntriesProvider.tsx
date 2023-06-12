@@ -6,13 +6,9 @@ import entriesApi from "../../apis/entriesApi";
 import entriesReducer from "./entriesReducer";
 import { v4 as uuidv4 } from "uuid";
 
-interface EntriesProviderProps {
-  children?: React.ReactNode
-}
-
 export interface EntriesState {
   entries: Entry[];
-  children: any;
+  children: React.ReactNode;
 }
 
 const Entries_INITIAL_STATE: EntriesState = {
@@ -20,7 +16,7 @@ const Entries_INITIAL_STATE: EntriesState = {
   children: []
 };
 
-export const EntriesProvider: FC<EntriesProviderProps> = ({ children }) => {
+export const EntriesProvider: FC<EntriesState> = ({ children }) => {
   const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
 
   const addNewEntry = async (description: string) => {
