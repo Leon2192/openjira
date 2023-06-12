@@ -1,15 +1,16 @@
-import type { NextPage } from "next";
+import { Card, CardContent, CardHeader, Grid, Typography } from "@mui/material";
+
+import EntryList from "../components/ui/EntryList";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { Grid, Typography, Card, CardHeader, CardContent } from "@mui/material";
 import Layout from "../components/layouts/Layout";
-import EntryList from "../components/ui/EntryList";
 import NewEntry from "../components/ui/NewEntry";
+import type { NextPage } from "next";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   return (
-    <Layout title="Home - Openjira">
+    <Layout title="RLARQ - Openjira">
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
           <Card sx={{ height: "calc(100vh - 100px)" }}>

@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../../database";
+
 import { Entry } from "../../../models";
 import { IEntry } from "../../../models/Entry";
+import { db } from "../../../database";
 
 type Data = { message: string } | IEntry[];
 
@@ -15,6 +16,9 @@ export default function handler(
 
     case "POST":
       return postEntry(req, res);
+
+  //  case "PUT":
+     // return postEntry(req, res);
 
     default:
       res.status(400).json({ message: "Endpoint no existe" });
