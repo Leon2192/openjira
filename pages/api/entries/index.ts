@@ -4,7 +4,7 @@ import { Entry } from "../../../models";
 import { IEntry } from "../../../models/Entry";
 import { db } from "../../../database";
 
-type Data = { message: string } | IEntry[];
+type Data = { message: string } | IEntry[] | IEntry;
 
 export default function handler(
   req: NextApiRequest,
