@@ -9,7 +9,7 @@ import { UIProvider } from "../context/ui/UIProvider";
 import darkTheme from "./themes/dark-theme";
 import lightTheme from "./themes/light-theme";
 
-function MyApp({ Component, pageProps }: AppProps): ReactElement {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <EntriesProvider>
       <UIProvider>

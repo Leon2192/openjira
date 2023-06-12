@@ -6,8 +6,8 @@ import entriesApi from "../../apis/entriesApi";
 import entriesReducer from "./entriesReducer";
 import { v4 as uuidv4 } from "uuid";
 
-interface EntriesProviderProps {
-  children?: ReactNode
+type CaughtProviderProps = {
+  children: React.ReactNode
 }
 
 export interface EntriesState {
@@ -18,7 +18,7 @@ const Entries_INITIAL_STATE: EntriesState = {
   entries: [],
 };
 
-export const EntriesProvider: FC = ({ children }: any) => {
+export const EntriesProvider: FC<CaughtProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(entriesReducer, Entries_INITIAL_STATE);
 
   const addNewEntry = async (description: string) => {
