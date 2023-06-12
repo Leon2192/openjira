@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export interface EntriesState {
   entries: Entry[];
+  children?: any;
 }
 
 const Entries_INITIAL_STATE: EntriesState = {
