@@ -45,7 +45,7 @@ const EntryCard: FC<Props> = ({ entry }) => {
           sx={{ display: "flex", justifyContent: "end", paddingRight: 2 }}
         >
           <Typography variant="body2">
-            {entry.createdAt}
+            Fecha: {`${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`}
           </Typography>
         </CardActions>
       </CardActionArea>
