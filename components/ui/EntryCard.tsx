@@ -45,7 +45,7 @@ const EntryCard: FC<Props> = ({ entry }) => {
           sx={{ display: "flex", justifyContent: "end", paddingRight: 2 }}
         >
           <Typography variant="body2">
-            Fecha: {`${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`}
+            Fecha: {`${new Date().getDate()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`}
           </Typography>
         </CardActions>
       </CardActionArea>
