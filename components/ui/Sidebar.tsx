@@ -9,7 +9,8 @@ import {
 } from "@mui/material";
 import React, { useContext } from "react";
 
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import { AiOutlineMail } from 'react-icons/ai';
+import { BsFillInboxFill } from 'react-icons/bs'
 import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";
 import UIContext from "../../context/ui/UIContext";
 
@@ -29,7 +30,7 @@ const Sidebar = () => {
           {menuItems.map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 ? <InboxOutlinedIcon /> : <EmailOutlinedIcon />}
+                {index % 2 ? <BsFillInboxFill /> : <AiOutlineMail />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -39,7 +40,7 @@ const Sidebar = () => {
           {menuItems.map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 ? <InboxOutlinedIcon /> : <EmailOutlinedIcon />}
+                {index % 2 ? <BsFillInboxFill /> : <AiOutlineMail />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

@@ -1,9 +1,10 @@
+import { Box, Button, TextField } from "@mui/material";
 import React, { ChangeEvent, useContext, useState } from "react";
-import { Button, Box, TextField } from "@mui/material";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+
+import { AiOutlineSave } from 'react-icons/ai';
 import { EntriesContext } from "../../context/entries/EntriesContext";
+import { GiCancel } from 'react-icons/gi';
+import { GrAddCircle } from 'react-icons/gr';
 import UIContext from "../../context/ui/UIContext";
 
 const NewEntry = () => {
@@ -47,7 +48,7 @@ const NewEntry = () => {
             <Button
               variant="outlined"
               color="secondary"
-              endIcon={<CancelOutlinedIcon />}
+              endIcon={<GiCancel />}
               onClick={() => setIsAddingEntry(false)}
             >
               Cancelar
@@ -56,7 +57,7 @@ const NewEntry = () => {
             <Button
               variant="outlined"
               color="secondary"
-              endIcon={<SaveOutlinedIcon />}
+              endIcon={<AiOutlineSave />}
               onClick={onSave}
             >
               Guardar
@@ -65,7 +66,7 @@ const NewEntry = () => {
         </>
       ) : (
         <Button
-          startIcon={<AddCircleOutlineOutlinedIcon />}
+          startIcon={<GrAddCircle />}
           fullWidth
           variant="outlined"
           onClick={() => setIsAddingEntry(true)}

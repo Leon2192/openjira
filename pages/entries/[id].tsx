@@ -1,10 +1,12 @@
 'use client'
 
 import { Button, Card, CardActions, CardContent, CardHeader, FormControl, FormControlLabel, FormLabel, Grid, IconButton, Radio, RadioGroup, TextField, capitalize } from '@mui/material';
-import { DeleteOutline, FirstPage, SaveOutlined } from '@mui/icons-material';
 import { Entry, EntryStatus } from '../../interfaces/entry';
 import React, { ChangeEvent, FC, useContext, useMemo, useState } from 'react'
 
+//import { DeleteOutline, FirstPage, SaveOutlined } from '@mui/icons-material';
+import { AiFillDelete } from 'react-icons/ai';
+import { AiFillSave } from 'react-icons/ai';
 import { EntriesContext } from '../../context/entries/EntriesContext';
 import { GetServerSideProps } from 'next';
 import Layout from '../../components/layouts/Layout'
@@ -93,7 +95,7 @@ const EntryPage: FC<Props> = ({ entry }) => {
 
                         <CardActions>
                             <Button
-                                startIcon={<SaveOutlined />}
+                                startIcon={<AiFillSave />}
                                 variant='contained'
                                 fullWidth
                                 onClick={onSave}
@@ -112,7 +114,7 @@ const EntryPage: FC<Props> = ({ entry }) => {
                 right: 30,
                 backgroundColor: 'error.dark'
             }}>
-                <DeleteOutline />
+                <AiFillDelete />
             </IconButton>
         </Layout>
     )
