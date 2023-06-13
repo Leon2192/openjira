@@ -15,8 +15,10 @@ const Navbar = () => {
           <AiOutlineMenuFold />
         </IconButton>
 
-        <NextLink href='/' passHref>
-          <Typography variant="h6">OpenJira</Typography>
+        <NextLink style={{
+          color: 'white'
+        }} href='/' passHref>
+          <Typography variant="h6">OpenJira - RLARQ</Typography>
         </NextLink>
 
       </Toolbar>
