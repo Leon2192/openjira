@@ -9,6 +9,7 @@ import React, { DragEvent, FC, useContext } from "react";
 
 import { Entry } from "../../interfaces/entry";
 import UIContext from "../../context/ui/UIContext";
+import { dateFunctions } from "../../utils";
 import { useRouter } from "next/router";
 
 interface Props {
@@ -52,7 +53,7 @@ const EntryCard: FC<Props> = ({ entry }) => {
           sx={{ display: "flex", justifyContent: "end", paddingRight: 2 }}
         >
           <Typography variant="body2">
-            Fecha: {`${new Date().getDate()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`}
+            {dateFunctions.getFormatDistanceToNow(entry.createdAt)}
           </Typography>
         </CardActions>
       </CardActionArea>

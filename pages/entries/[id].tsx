@@ -1,10 +1,12 @@
 import { Button, Card, CardActions, CardContent, CardHeader, FormControl, FormControlLabel, FormLabel, Grid, IconButton, Radio, RadioGroup, TextField, capitalize } from '@mui/material';
 import { DeleteOutline, FirstPage, SaveOutlined } from '@mui/icons-material';
 import { Entry, EntryStatus } from '../../interfaces/entry';
-import React, { ChangeEvent, FC, useMemo, useState } from 'react'
+import React, { ChangeEvent, FC, useContext, useMemo, useState } from 'react'
 
+import { EntriesContext } from '../../context/entries/EntriesContext';
 import { GetServerSideProps } from 'next';
 import Layout from '../../components/layouts/Layout'
+import { dateFunctions } from '../../utils';
 import { dbEntries } from '../../database';
 import { isValidObjectId } from 'mongoose';
 
@@ -16,10 +18,10 @@ interface Props {
 
 const EntryPage: FC<Props> = ({ entry }) => {
 
-    console.log({ entry })
+    const { updateEntry } = useContext(EntriesContext)
 
-    const [inputValue, setInputValue] = useState(entry.description)
-    const [status, setStatus] = useState<EntryStatus>('pending');
+    const [inputValue, setInputValue] = useState(entry.description);
+    const [status, setStatus] = useState<EntryStatus>(entry.status);
     const [touched, setTouched] = useState(false);
 
     const isNotValid = useMemo(() => inputValue.length <= 0 && touched, [inputValue, touched])
@@ -34,8 +36,15 @@ const EntryPage: FC<Props> = ({ entry }) => {
     }
 
     const onSave = () => {
-        console.log({ inputValue, status });
+        if (inputValue.trim().length === 0) return;
 
+        const updatedEntry: Entry = {
+            ...entry,
+            status,
+            description: inputValue,
+        }
+
+        updateEntry(updatedEntry, true)
     }
 
 
@@ -44,7 +53,7 @@ const EntryPage: FC<Props> = ({ entry }) => {
             <Grid container justifyContent='center' sx={{ marginTop: 2 }}>
                 <Grid item xs={12} sm={8} md={6}>
                     <Card>
-                        <CardHeader title={`Entrada:${inputValue}`} subheader={`Creada hace ${entry.createdAt} minutos`} />
+                        <CardHeader title={`Entrada:${inputValue}`} subheader={`Creada ${dateFunctions.getFormatDistanceToNow(entry.createdAt)} minutos`} />
 
                         <CardContent>
                             <TextField
