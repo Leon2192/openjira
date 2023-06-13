@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, Card, CardActions, CardContent, CardHeader, FormControl, FormControlLabel, FormLabel, Grid, IconButton, Radio, RadioGroup, TextField, capitalize } from '@mui/material';
 import { DeleteOutline, FirstPage, SaveOutlined } from '@mui/icons-material';
 import { Entry, EntryStatus } from '../../interfaces/entry';
