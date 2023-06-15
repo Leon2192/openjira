@@ -21,8 +21,10 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `
                 window.watsonAssistantChatOptions = {
-                  integrationID: 'c71ad436-476e-4765-a010-3ede2809c564', 
-                  region: 'us-east', 
+                  integrationID: "c71ad436-476e-4765-a010-3ede2809c564", // The ID of this integration.
+                  region: "us-east", // The region your integration is hosted in.
+                  serviceInstanceID: "5640a3b2-9ee2-4df3-a29e-96ca6da3fb0b", // The ID of your service instance.
+                  onLoad: function(instance) { instance.render()}
                 };
               `,
             }}
