@@ -6,11 +6,14 @@ import Image from "next/image";
 import Layout from "../components/layouts/Layout";
 import NewEntry from "../components/ui/NewEntry";
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+
+
   return (
     <Layout title="RLARQ - Openjira">
+
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
           <Card sx={{ height: "calc(100vh - 100px)" }}>
